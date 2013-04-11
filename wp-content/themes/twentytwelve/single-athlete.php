@@ -11,17 +11,23 @@ get_header(); ?>
 
 	<div id="primary" class="site-content">
 		<div id="content" role="main">
-			<h1>athlete</h1>
 
 			<?php while ( have_posts() ) : the_post(); ?>
+				<h1><?php the_title(); ?></h1>
 
-				<?php /*print_r($post);*/ echo get_post_meta($post->ID, 'wpcf-athlete_password', true); ?>
+				<img src="<?php echo get_post_meta($post->ID, 'wpcf-image', true); ?>" height="100" />
+
+				<br />
+
+				<?php echo get_post_meta($post->ID, 'wpcf-user_email', true); ?>
 
 				<?php
-				$meta_key_used= get_post_custom_keys($post->ID); 
-				foreach ($meta_key_used as $meta_key) {
-				    echo $meta_key.' : '.get_post_meta($post->ID, $meta_key, true).'<br />';
-				}
+					/*
+					$meta_key_used= get_post_custom_keys($post->ID); 
+					foreach ($meta_key_used as $meta_key) {
+					    echo $meta_key.' : '.get_post_meta($post->ID, $meta_key, true).'<br />';
+					}
+					*/
 				?>
 
 				<a href=""></a>
